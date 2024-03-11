@@ -7,5 +7,6 @@ class Main {
         Scanner scanner = new Scanner(System.in);
         nome = scanner.next();
         System.out.println("Olá, "+nome+"!");
+        scanner.close();
     }
 }
