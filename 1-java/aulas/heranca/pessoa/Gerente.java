@@ -1,4 +1,4 @@
-package heranca;
+package heranca.pessoa;
 
 public class Gerente extends Funcionario{
     private String email;
