@@ -6,6 +6,27 @@
     "configurations": [
         {
             "type": "java",
+            "name": "InstructionSwitch",
+            "request": "launch",
+            "mainClass": "instructionswitch.InstructionSwitch",
+            "projectName": "2-programacao-extrema-java_2c04e9b4"
+        },
+        {
+            "type": "java",
+            "name": "OperatorsBitwise",
+            "request": "launch",
+            "mainClass": "operators.OperatorsBitwise",
+            "projectName": "2-programacao-extrema-java_2c04e9b4"
+        },
+        {
+            "type": "java",
+            "name": "Xor",
+            "request": "launch",
+            "mainClass": "operators.Xor",
+            "projectName": "2-programacao-extrema-java_2c04e9b4"
+        },
+        {
+            "type": "java",
             "name": "PrimitiveCasting",
             "request": "launch",
             "mainClass": "primitivecasting.PrimitiveCasting",
