@@ -8,7 +8,7 @@ public class UseString {
         String name;
 
         System.out.println("Digite seu nome: ");
-        name = teclado.nextLine();
+        name = teclado.nextLine(); // use nextLine() or next()
 
         System.out.println("Seu nome é: "+ name);;
     }
