@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "AccessModifiers",
+            "request": "launch",
+            "mainClass": "accessmodifiers.AccessModifiers",
+            "projectName": "2-programacao-extrema-java_2c04e9b4"
+        },
+        {
+            "type": "java",
             "name": "InstructionSwitch",
             "request": "launch",
             "mainClass": "instructionswitch.InstructionSwitch",
