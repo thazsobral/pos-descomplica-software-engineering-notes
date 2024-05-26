@@ -24,13 +24,19 @@ public class App {
             deletePessoa(connection, 2);
             getPessoas(stmt);
 
+            stmt.close();
+            connection.close();
+
         } catch (Exception e) {
             System.out.println("Erro: "+e.getMessage());
         }
     }
 
-    public static int getMaxSequence(Statement stmt) throws SQLException {
-        ResultSet rs = stmt.executeQuery("SELECT MAX(id) FROM pessoas");
+    public static int getMaxSequence(Connection connection) throws SQLException {
+        //ResultSet rs = stmt.executeQuery("SELECT MAX(id) FROM pessoas");
+
+        PreparedStatement preparedStatement = connection.prepareStatement("SELECT MAX(id) FROM pessoas");
+        ResultSet rs = preparedStatement.executeQuery();
         rs.next();
         return rs.getInt("max");
     }
@@ -46,8 +52,8 @@ public class App {
     }
 
     public static void addPessoa(Connection connection,String name) throws SQLException {
-        Statement stmt = connection.createStatement();
-        int maxSequence = getMaxSequence(stmt);
+        //Statement stmt = connection.createStatement();
+        int maxSequence = getMaxSequence(connection);
 
         PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO pessoas(id, name) VALUES(?,?)");
         preparedStatement.setInt(1, maxSequence+1);

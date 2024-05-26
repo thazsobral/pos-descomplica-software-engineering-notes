@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "ConnectionDB",
+            "request": "launch",
+            "mainClass": "dbs.postgresql.src.connectionpostgres.ConnectionDB",
+            "projectName": "2-programacao-extrema-java_93eec42e"
+        },
+        {
+            "type": "java",
             "name": "AccessModifiers",
             "request": "launch",
             "mainClass": "accessmodifiers.AccessModifiers",
