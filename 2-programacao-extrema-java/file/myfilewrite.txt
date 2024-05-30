@@ -1,0 +1,5 @@
+id: 1
+nome: thalles
+teste: 10.0
+prova: 10.0
+faltas: 4

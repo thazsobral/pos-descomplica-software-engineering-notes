@@ -13,5 +13,20 @@ public class UseArrayList {
         for(String name : listName) {
             System.out.println(name);
         }
+        System.out.println("\n");
+
+        listName.set(0, "pedro");
+
+        for(String name : listName) {
+            System.out.println(name);
+        }
+        System.out.println("\n");
+
+        listName.remove(2);
+        listName.add("null");
+
+        for(String name : listName) {
+            System.out.println(name);
+        }
     }   
 }
