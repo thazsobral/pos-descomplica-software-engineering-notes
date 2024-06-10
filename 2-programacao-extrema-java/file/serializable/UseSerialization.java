@@ -15,7 +15,7 @@ public class UseSerialization implements Serializable {
         Student student2 = new Student("vitor", 2, 8);
         Student student3 = new Student("flavia", 5, 10);
 
-        File pathFile = new File("/home/thazsobral/projects/pos-descomplica-software-engineering-notes/2-programacao-extrema-java/file/serializable/myfileserializable.txt")
+        File pathFile = new File("/home/thazsobral/projects/pos-descomplica-software-engineering-notes/2-programacao-extrema-java/file/serializable/myfileserializable.txt");
 
         try {
             FileOutputStream fileOut = new FileOutputStream(pathFile);
