@@ -52,6 +52,7 @@ public class MyStack {
             top -= 1;
             return el;
         } else {
+            System.out.println("Pilha vazia");
             return -1;
         }
     }//*/
@@ -72,9 +73,11 @@ public class MyStack {
         }
     }//*/
 
-    public void showStack() {
+    public String showStack() {
+        String stringStack = "";
         for(int i = top; i >= 0; i--) {
-            System.out.println("Element: "+elements[i]+" posição: "+(i+1));
+            stringStack += "Element: "+elements[i]+" posição: "+(i+1)+"\n";
         }
+        return stringStack;
     }
 }
