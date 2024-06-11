@@ -13,14 +13,14 @@ public class Factorial {
         if(value > 1) { // 
             taillessFactorial(value - 1, factor * value); //
         } else {
-            System.out.println("O fatorial é "+factor);
+            System.out.println("O fatorial é: "+factor);
         }
     }
 
     public static void main(String[] args) {
-        int result, value = 5;
-        //result = factorialWithTail(value);
-        //System.out.println(result);
+        int result, value = 10;
+        result = factorialWithTail(value);
+        System.out.println(result);
         taillessFactorial(value, 1);
     }
 }
