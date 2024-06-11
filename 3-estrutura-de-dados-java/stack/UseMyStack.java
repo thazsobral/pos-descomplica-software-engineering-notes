@@ -28,7 +28,7 @@ public class UseMyStack {
                     JOptionPane.showMessageDialog(null, "Pilha:\n"+stringStack);
                     break;
                 case 0:
-                    System.out.println("Tchau!!");
+                    JOptionPane.showMessageDialog(null, "Tchau!!");
                     break;
                 default:
                     System.out.println();
