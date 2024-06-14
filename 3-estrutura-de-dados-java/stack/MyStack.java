@@ -3,11 +3,11 @@ package stack;
 public class MyStack {
     private int top = -1;
     private int length;
-    private int[] elements;
+    private int[] stack;
 
     public MyStack(int defineLength) {
         length = defineLength;
-        elements = new int[length];
+        stack = new int[length];
     }
 
     public boolean isFull() {
@@ -29,7 +29,7 @@ public class MyStack {
     public void put(int el) {
         if(!isFull()) {
             top += 1;
-            elements[top] = el;
+            stack[top] = el;
         } else {
             System.out.println("Pilha cheia");
         }
@@ -40,7 +40,7 @@ public class MyStack {
         if(isEmpty()) {
             System.out.println("Pilha vázia.");
         } else {
-            unstacked = elements[top];
+            unstacked = stack[top];
             top -= 1;
         }
         return unstacked;
@@ -48,7 +48,7 @@ public class MyStack {
     
     public int pop() { // my version the method pop
         if(!isEmpty()) {
-            int el = elements[top];
+            int el = stack[top];
             top -= 1;
             return el;
         } else {
@@ -59,7 +59,7 @@ public class MyStack {
 
     /*public void topElement() {
         if(top >= 0) {
-            System.out.println("O elemento do topo é: "+elements[top]);
+            System.out.println("O elemento do topo é: "+stack[top]);
         } else {
             System.out.println("Pilha vázia.");
         }
@@ -67,7 +67,7 @@ public class MyStack {
 
     public int topElement() { // my version the method topElement
         if(top >= 0) {
-            return elements[top];
+            return stack[top];
         } else {
             return -1;
         }
@@ -76,7 +76,7 @@ public class MyStack {
     public String showStack() {
         String stringStack = "";
         for(int i = top; i >= 0; i--) {
-            stringStack += "Element: "+elements[i]+" posição: "+(i+1)+"\n";
+            stringStack += "Element: "+stack[i]+" posição: "+(i+1)+"\n";
         }
         return stringStack;
     }
