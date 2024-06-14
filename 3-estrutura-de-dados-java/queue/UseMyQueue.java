@@ -20,12 +20,14 @@ public class UseMyQueue {
                     JOptionPane.showMessageDialog(null, "Desempilhado: "+value);
                     break;
                 case 3:
+                    // TODO: Ajustar
                     value = myQueue.firstElement();
-                    JOptionPane.showMessageDialog(null, "Elemento do topo: "+value);
+                    JOptionPane.showMessageDialog(null, "Elemento do inicio da fila: "+value);
                     break;
                 case 4:
+                    // TODO: Ajustar
                     stringQueue = myQueue.showQueue();
-                    JOptionPane.showMessageDialog(null, "Pilha:\n"+stringQueue);
+                    JOptionPane.showMessageDialog(null, "fila:\n"+stringQueue);
                     break;
                 case 0:
                     JOptionPane.showMessageDialog(null, "Tchau!!");
