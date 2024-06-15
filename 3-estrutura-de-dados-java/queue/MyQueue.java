@@ -5,9 +5,6 @@ public class MyQueue {
     private int length, total, end, start;
     private int[] queue;
 
-    // length=4, total=3, end=1, start=2;
-    //queue = [1,x,3,4]
-
     public MyQueue(int valueLength) {
         length = valueLength;
         total = 0;
@@ -94,8 +91,8 @@ public class MyQueue {
     /*public void showQueue() {
         int i, aux;
         aux = start;
-        for(i = 1; i <= total; i++) {
-            System.out.println("Elemento: "+queue[i]+" posicao: "+i);
+        for(i = 0; i < total; i++) {
+            System.out.println("Elemento: "+queue[aux]+" posicao: "+i);
             aux += 1;
             if(aux >= length) {
                 aux = 0;
@@ -107,12 +104,12 @@ public class MyQueue {
         String stringQueue = "";
         int aux = start;
         for(int i = 0; i < total; i++) {
-            stringQueue += "Elemento: "+queue[i]+" posicao: "+i+"\n";
-            aux += 0;
+            stringQueue += "Elemento: "+queue[aux]+" posicao: "+i+"\n";
+            aux += 1;
             if(aux >= length) {
                 aux = 0;
             }
         }
         return stringQueue;
-    }
+    }//*/
 }
