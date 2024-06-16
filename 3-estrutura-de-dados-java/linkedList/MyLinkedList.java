@@ -21,7 +21,7 @@ public class MyLinkedList {
         this.last = null;
     }
 
-    public int countNode() {
+    public int countNodes() {
         int length = 0;
         MyNode temp = this.first;
 
@@ -75,5 +75,15 @@ public class MyLinkedList {
             this.last.next = newNode;
         }
         this.last = newNode;
+    }
+
+    public void insert(MyNode newNode, int position) {
+        MyNode temp = this.first;
+        int numberNodes, auxPosition;
+
+        numberNodes = this.countNodes();
+        if(position <= 1) {
+            this.insertInFirst(newNode);
+        }
     }
 }
