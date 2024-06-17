@@ -77,13 +77,57 @@ public class MyLinkedList {
         this.last = newNode;
     }
 
-    public void insert(MyNode newNode, int position) {
+    public void insertInMiddle(MyNode newNode, int position) {
         MyNode temp = this.first;
-        int numberNodes, auxPosition;
+        int numberNodes, auxPosition = 1;
 
         numberNodes = this.countNodes();
         if(position <= 1) {
             this.insertInFirst(newNode);
+        } else {
+            if(position > numberNodes) {
+                this.insertInLast(newNode);
+            } else {
+                while(auxPosition > (position - 1)) {
+                    temp = temp.next;
+                    auxPosition += 1;
+                }
+                newNode.next = temp.next;
+                temp.next = newNode;
+            }
         }
+    }
+
+    public void removeInMiddle(int element) {
+        MyNode temp = this.first;
+        MyNode before = null;
+        if(this.first.element == element) {
+            this.first = this.first.next;
+        } else {
+            while(temp != null && temp.element != element) {
+                before = temp;
+                temp = temp.next;
+            }
+            if(temp != null) {
+                before.next = temp.next;
+            }
+            if(temp == this.last) {
+                this.last = before;
+            }
+        }
+    }
+
+    public MyNode findNode(int element) {
+        int i = 1;
+        MyNode temp = this.first;
+        while(temp != null) {
+            if(temp.element == element) {
+                System.out.println("No: "+temp.element+" posicao: "+i);
+                return temp;
+            }
+            i += 1;
+            temp = temp.next;
+        }
+        return null;
     }
 }
