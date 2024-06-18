@@ -48,7 +48,7 @@ public class MyABB {
 
     public void showNode() {}
 
-    public void removeNode(int value) {
+    /*public void removeNode(int value) {
         MyNode temp, father, son, tempNode;
         tempNode = this.root;
         father = null;
@@ -74,7 +74,7 @@ public class MyABB {
                     if(tempNode.left == null) {
                         this.root = tempNode.right;
                     } else {
-                        //for(temp = tempNode, son = tempNode.left; son.right != null; temp = son, son = son.right) {}
+                        //temp = tempNode &&  son = tempNode.left ?? son.right != null; temp = son, son = son.right
                         if(son != tempNode.left) {
                             temp.right = son.left;
                             son.left = this.root.left;
@@ -113,5 +113,22 @@ public class MyABB {
                 }
             }
         }
+    }//*/
+
+    public void inSequence(MyNode abb) {
+        if(abb != null) {
+            this.inSequence(abb.left);
+            this.visit(abb);
+            this.inSequence(abb.right);
+        }
+    }
+
+    public void postSequence(MyNode abb) {
+        if(abb != null) {
+            this.postSequence(abb.left);
+            this.postSequence(abb.right);
+            this.visit(abb.);
+        }
     }
 }
+
