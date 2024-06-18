@@ -127,7 +127,15 @@ public class MyABB {
         if(abb != null) {
             this.postSequence(abb.left);
             this.postSequence(abb.right);
-            this.visit(abb.);
+            this.visit(abb);
+        }
+    }
+
+    public void preSequence(MyNode abb) {
+        if(abb != null) {
+            this.visit(abb);
+            this.postSequence(abb.left);
+            this.postSequence(abb.right);
         }
     }
 }
