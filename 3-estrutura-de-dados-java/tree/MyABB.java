@@ -115,6 +115,10 @@ public class MyABB {
         }
     }//*/
 
+    public void visit(MyNode tree) {
+        System.out.print(tree.value+"\t");
+    }
+
     public void inSequence(MyNode abb) {
         if(abb != null) {
             this.inSequence(abb.left);
