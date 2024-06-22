@@ -1,13 +1,13 @@
 package tree;
 
 public class MyABB {
-    private MyNode root;
+    MyNode root;
 
     public MyNode insert(MyNode tree, int newValue) {
-        if(tree == null) {
+        if (tree == null) {
             return new MyNode(newValue);
         } else {
-            if(newValue < tree.value) {
+            if (newValue < tree.value) {
                 tree.left = this.insert(tree.left, newValue);
             } else {
                 tree.right = this.insert(tree.right, newValue);
@@ -17,65 +17,72 @@ public class MyABB {
     }
 
     public void insertNode(int newValue) {
-        this.root = insert(root, newValue);
+        root = insert(this.root, newValue);
     }
 
     public void showLeft(MyNode tree) {
-        if(tree != null) {
+        if (tree != null) {
             showLeft(tree.left);
-            System.out.println(tree.value);
+            System.out.print("esq.: " + tree.value + "\t");
         }
     }
 
     public void showNodeLeft() {
-        showLeft(root);
+        showLeft(this.root);
     }
 
     public void showRight(MyNode tree) {
-        if(tree != null) {
+        if (tree != null) {
             showRight(tree.right);
-            System.out.println(tree.value);
+            System.out.print("dir.: " + tree.value + "\t");
         }
     }
 
     public void showNodeRight() {
-        showRight(root);
+        showRight(this.root);
     }
 
     public void showRoot() {
-        System.out.println("Raiz: "+this.root.value);
+        System.out.println("Raiz: " + this.root.value + "\t");
     }
 
-    public void showNode() {}
+    public void showNode() {
+        showNodeLeft();
+        showRoot();
+        showNodeRight();
+    }
 
-    /*public void removeNode(int value) {
-        MyNode temp, father, son, tempNode;
-        tempNode = this.root;
-        father = null;
-        son = this.root;
+    public void excluirNo(int item) {
+        try {
+            MyNode tempNode, father, son, temp;
+            tempNode = this.root;
+            father = null;
+            son = this.root;
 
-        while(tempNode != null && tempNode.value != value) {
-            father = tempNode;
-            
-            if(value < tempNode.value) {
-                tempNode = tempNode.left;
-            } else {
-                tempNode = tempNode.right;
+            while (tempNode != null && tempNode.value != item) {
+                father = tempNode;
+                if (item < tempNode.value) {
+                    tempNode = tempNode.left;
+                } else {
+                    tempNode = tempNode.right;
+                }
+                /*
+                 * if (tempNode == null) {
+                 * 
+                 * }//
+                 */
             }
-            
-            if(tempNode == null) {
-                System.out.println("Valor não localizado");
-            }
 
-            if(father == null) {
-                if(tempNode.right == null) {
+            if (father == null) {
+                if (tempNode.right == null) {
                     this.root = tempNode.left;
                 } else {
-                    if(tempNode.left == null) {
+                    if (tempNode.left == null) {
                         this.root = tempNode.right;
                     } else {
-                        //temp = tempNode &&  son = tempNode.left ?? son.right != null; temp = son, son = son.right
-                        if(son != tempNode.left) {
+                        for (temp = tempNode, son = tempNode.left; son.right != null; temp = son, son = son.right)
+                            ;
+                        if (son != tempNode.left) {
                             temp.right = son.left;
                             son.left = this.root.left;
                         }
@@ -83,28 +90,31 @@ public class MyABB {
                         this.root = son;
                     }
                 }
-            } else {
-                if(tempNode.right == null) {
-                    if(father.left == tempNode) {
+            }
+
+            else {
+                if (tempNode.right == null) {
+                    if (father.left == tempNode) {
                         father.left = tempNode.left;
                     } else {
                         father.right = tempNode.left;
                     }
                 } else {
-                    if(tempNode == null) {
-                        if(father.left == tempNode) {
+                    if (tempNode.left == null) {
+                        if (father.left == tempNode) {
                             father.left = tempNode.right;
                         } else {
                             father.right = tempNode.right;
                         }
                     } else {
-                        //for(temp = tempNode, son = tempNode.left; son.right != null; temp = son, son = son.right) {}
-                        if(son != tempNode.left) {
+                        for (temp = tempNode, son = tempNode.left; son.right != null; temp = son, son = son.right)
+                            ;
+                        if (son != tempNode.left) {
                             temp.right = son.left;
                             son.left = tempNode.left;
                         }
                         son.right = tempNode.right;
-                        if(father.left == tempNode) {
+                        if (father.left == tempNode) {
                             father.left = son;
                         } else {
                             father.right = son;
@@ -112,15 +122,17 @@ public class MyABB {
                     }
                 }
             }
+        } catch (NullPointerException e) {
+            System.out.println("\n\nitem não localizado!");
         }
-    }//*/
+    }
 
     public void visit(MyNode tree) {
-        System.out.print(tree.value+"\t");
+        System.out.print("no: " + tree.value + "\t");
     }
 
     public void inSequence(MyNode abb) {
-        if(abb != null) {
+        if (abb != null) {
             this.inSequence(abb.left);
             this.visit(abb);
             this.inSequence(abb.right);
@@ -128,7 +140,7 @@ public class MyABB {
     }
 
     public void postSequence(MyNode abb) {
-        if(abb != null) {
+        if (abb != null) {
             this.postSequence(abb.left);
             this.postSequence(abb.right);
             this.visit(abb);
@@ -136,11 +148,10 @@ public class MyABB {
     }
 
     public void preSequence(MyNode abb) {
-        if(abb != null) {
+        if (abb != null) {
             this.visit(abb);
-            this.postSequence(abb.left);
-            this.postSequence(abb.right);
+            this.preSequence(abb.left);
+            this.preSequence(abb.right);
         }
     }
 }
-
